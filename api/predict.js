@@ -30,7 +30,7 @@ function generateDateRange(startDateStr) {
   const dateList = [];
   let currentDate = new Date(startDateStr);
   const endDate = new Date();
-  while (currentDate <= endDate.getUTCDate()+1) {
+  while (currentDate <= endDate) {
     dateList.push(currentDate.toISOString().split('T')[0]);
     currentDate.setUTCDate(currentDate.getUTCDate() + 1);
   }
