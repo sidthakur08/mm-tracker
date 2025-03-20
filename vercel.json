@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "src": "/api/scoreboard/(\\d{4})/(\\d{1,2})/(\\d{1,2})/?",
+      "dest": "/api/scoreboard.js?year=$1&month=$2&day=$3"
+    },
+    {
+      "src": "/api/ncaa-live-scores",
+      "dest": "/api/ncaa-live-scores.js"
+    },
+    {
+      "src": "/api/predict",
+      "dest": "/api/predict.js"
+    },
+    {
+      "src": "/[^.]+",
+      "dest": "/"
+    }
+  ]
+}
