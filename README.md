@@ -1,6 +1,6 @@
 # March Madness Tracker
 
-[Website](https://mmtracker.vercel.app/mm-website)
+[Website](https://mmtracker.vercel.app/)
 
 A modern, responsive website for live NCAA basketball scores and game insights built with Vite, React, and TypeScript. The project uses Tailwind CSS for styling, shadcn-ui for reusable components, and React Query for data fetching.
 
