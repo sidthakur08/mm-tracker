@@ -24,12 +24,13 @@ async function loadCsvIfNeeded() {
 }
 
 /**
- * Generate an array of date strings (YYYY-MM-DD) from startDateStr to endDateStr (inclusive).
+ * Generate an array of date strings (YYYY-MM-DD) from startDateStr to today's date + 2.
  */
 function generateDateRange(startDateStr) {
   const dateList = [];
   let currentDate = new Date(startDateStr);
   const endDate = new Date();
+  endDate.setUTCDate(endDate.getUTCDate() + 2);
   while (currentDate <= endDate) {
     dateList.push(currentDate.toISOString().split('T')[0]);
     currentDate.setUTCDate(currentDate.getUTCDate() + 1);
