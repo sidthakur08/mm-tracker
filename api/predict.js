@@ -26,11 +26,11 @@ async function loadCsvIfNeeded() {
 /**
  * Generate an array of date strings (YYYY-MM-DD) from startDateStr to endDateStr (inclusive).
  */
-function generateDateRange(startDateStr, endDateStr) {
+function generateDateRange(startDateStr) {
   const dateList = [];
   let currentDate = new Date(startDateStr);
-  const endDate = new Date(endDateStr);
-  while (currentDate <= endDate) {
+  const endDate = new Date();
+  while (currentDate <= endDate.getUTCDate()+1) {
     dateList.push(currentDate.toISOString().split('T')[0]);
     currentDate.setUTCDate(currentDate.getUTCDate() + 1);
   }
@@ -118,8 +118,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   await loadCsvIfNeeded();
-  // Generate date range from March 18, 2025 to April 8, 2025
-  const dateList = generateDateRange('2025-03-18', '2025-04-08');
+  // Generate date range from March 18, 2025 to today
+  const dateList = generateDateRange('2025-03-18');
   
   // Sequentially fetch games for each date with a short delay to avoid overloading the API.
   let allGames = [];
